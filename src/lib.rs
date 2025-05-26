@@ -64,8 +64,10 @@ impl Plugin for AppPlugin {
         #[cfg(feature = "dev")]
         app.add_plugins(dev_tools::plugin);
         #[cfg(feature = "inspector")]
-        app.add_plugins(bevy_inspector_egui::bevy_egui::EguiPlugin { enable_multipass_for_primary_context: true })
-            .add_plugins(bevy_inspector_egui::quick::WorldInspectorPlugin::default());
+        app.add_plugins(bevy_inspector_egui::bevy_egui::EguiPlugin {
+            enable_multipass_for_primary_context: true,
+        })
+        .add_plugins(bevy_inspector_egui::quick::WorldInspectorPlugin::default());
     }
 }
 
