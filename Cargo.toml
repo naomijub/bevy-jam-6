@@ -1,11 +1,14 @@
 [package]
 name = "bevy-jam-6"
-authors = ["Jay Kim <fonx.games@gmail.com>"]
+authors = [
+    "Julia Naomi <jnboeira@outlook.com>", 
+    "Jay Kim <fonx.games@gmail.com>",
+]
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-bevy = { version = "0.16.0-rc.4", features = ["wayland"] }
+bevy = { version = "0.16.0", features = ["wayland"] }
 rand = "0.8"
 # Compile low-severity logs out of native builds for performance.
 log = { version = "0.4", features = [
@@ -18,11 +21,14 @@ tracing = { version = "0.1", features = [
     "release_max_level_warn",
 ] }
 
+bevy-inspector-egui = { version = "0.31", optional = true }
+
 [features]
 default = [
     # Default to a native dev build.
     "dev_native",
 ]
+inspector = ["dep:bevy-inspector-egui"]
 dev = [
     # Improve compile times for dev builds by linking Bevy as a dynamic library.
     "bevy/dynamic_linking",
