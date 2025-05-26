@@ -21,11 +21,14 @@ tracing = { version = "0.1", features = [
     "release_max_level_warn",
 ] }
 
+bevy-inspector-egui = { version = "0.31", optional = true }
+
 [features]
 default = [
     # Default to a native dev build.
     "dev_native",
 ]
+inspector = ["dep:bevy-inspector-egui"]
 dev = [
     # Improve compile times for dev builds by linking Bevy as a dynamic library.
     "bevy/dynamic_linking",
